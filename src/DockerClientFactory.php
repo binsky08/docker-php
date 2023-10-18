@@ -10,7 +10,7 @@ use Http\Client\Common\Plugin\ContentLengthPlugin;
 use Http\Client\Common\Plugin\DecoderPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 use Http\Client\Common\PluginClientFactory;
-use Http\Discovery\UriFactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
 use Psr\Http\Client\ClientInterface;
 use Symfony\Component\HttpClient\Psr18Client;
 
@@ -24,7 +24,7 @@ final class DockerClientFactory
 
         $socketClient = new Psr18Client();
 
-        $uriFactory = UriFactoryDiscovery::find();
+        $uriFactory = Psr17FactoryDiscovery::findUriFactory();
         $host = \preg_match('/unix:\/\//', $config['remote_socket']) ? 'http://localhost' : $config['remote_socket'];
 
         $pluginClientFactory = $pluginClientFactory ?? new PluginClientFactory();
