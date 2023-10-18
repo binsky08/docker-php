@@ -1,5 +1,5 @@
 {
-    "name": "beluga-php/docker-php",
+    "name": "binsky08/docker-php",
     "license": "MIT",
     "type": "library",
     "description": "A Docker PHP client",
@@ -29,9 +29,15 @@
             "url": "https://github.com/flavioheleno"
         }
     ],
+    "repositories": {
+        "docker-php-api": {
+            "type": "vcs",
+            "url": "https://github.com/binsky08/docker-php-api.git"
+        }
+    },
     "require": {
         "php": ">=8.1",
-        "beluga-php/docker-php-api": "7.1.43.x-dev",
+        "binsky08/docker-php-api": "dev-main",
         "psr/http-client": "^1.0",
         "psr/http-client-implementation": "*",
         "psr/http-message": "^1.1 || ^2.0",
